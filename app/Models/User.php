@@ -47,12 +47,12 @@ class User extends Authenticatable
         ];
     }
 
-    public function contests() : HasMany
+    public function contests(): HasMany
     {
         return $this->hasMany(Contest::class);
     }
 
-    public function characters() : HasMany
+    public function characters(): HasMany
     {
         return $this->hasMany(Character::class);
     }

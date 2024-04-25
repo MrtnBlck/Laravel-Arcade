@@ -13,9 +13,15 @@ return new class extends Migration
     {
         Schema::create('contests', function (Blueprint $table) {
             $table->id();
-            $table->string('win');
-            $table->json('history');
+            $table->boolean('win')->nullable();
+            $table->json('history')->nullable();
             $table->timestamps();
+
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
+            $table->unsignedBigInteger('place_id');
+            $table->foreign('place_id')->references('id')->on('places')->onDelete('cascade');
         });
     }
 

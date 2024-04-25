@@ -17,7 +17,10 @@ class PlaceFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            //random location name
+            'name' => fake()->city(),
+            'picture' => null,
+            'picture_hash' => null, //TODO: select random image
         ];
     }
 }
