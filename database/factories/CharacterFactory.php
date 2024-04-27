@@ -42,7 +42,7 @@ class CharacterFactory extends Factory
 
 
         return [
-            'name' => fake()->name(),
+            'name' => fake()->firstName(),
             'defence' => $stats[0],
             'strength' => $stats[1],
             'accuracy' => $stats[2],

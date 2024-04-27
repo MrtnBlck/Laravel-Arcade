@@ -114,16 +114,16 @@ A feladathoz **kötelező kiinduló csomag nincs**, javasolt azonban a **Laravel
 
 A gyorsabb és egyszerűbb ellenőrzés érdekében jelöld be egy "X"-el, hogy mely feladatokat teljesítetted! Ezt másold be a beadandód `README.md` fájljába!
 
-[ ] - Adatbázis és modellek 3 pont \
-[ ] - Seeder 3 pont \
-[ ] - Főoldal 2 pont \
-[ ] - Karakterek listázása oldal 2 pont \
-[ ] - Karakter részletes adatai tartalmazó oldal 2 pont \
-[ ] - Új karakter létrehozása 6 pont \
-[ ] - Karakter módosítása 4 pont \
-[ ] - Karakter törlése 2 pont \
-[ ] - Új mérkőzés létrehozása 3 pont \
-[ ] - Mérkőzés oldal 10 pont \
+[X] - Adatbázis és modellek 3 pont \
+[X] - Seeder 3 pont \
+[X] - Főoldal 2 pont \
+[X] - Karakterek listázása oldal 2 pont \
+[X] - Karakter részletes adatai tartalmazó oldal 2 pont \
+[X] - Új karakter létrehozása 6 pont \
+[X] - Karakter módosítása 4 pont \
+[X] - Karakter törlése 2 pont \
+[X] - Új mérkőzés létrehozása 3 pont \
+[X] - Mérkőzés oldal 10 pont \
 [ ] - Helyszínek listázása oldal 2 pont \
 [ ] - Új helyszín létrehozása 2 pont \
 [ ] - Helyszín módosítása 3 pont \

@@ -16,37 +16,33 @@ class ContestSeeder extends Seeder
      */
     public function run(): void
     {
-        $users = User::all();
         $places = Place::all();
         $characters = Character::all();
 
-        foreach ($users as $user) {
-            for ($i = 0; $i < rand(1, 5); $i++) {
-                $contests = Contest::factory($i)->create([
-                    'user_id' => $user->id,
+        foreach ($characters as $character) {
+            if ($character->enemy) {
+                continue;
+            }
+            $contestCount = rand(5, 7);
+            $contests = Contest::factory($contestCount)->create([
+                'user_id' => $character->user_id,
+                'place_id' => $places->random(1)->first()->id,
+                'win' => fake()->boolean() ? null : fake()->boolean(),
+            ]);
+
+            foreach ($contests as $contest) {
+                $contest->update([
                     'place_id' => $places->random(1)->first()->id,
                     'win' => fake()->boolean() ? null : fake()->boolean(),
                 ]);
-                foreach ($contests as $contest) {
-                    $userCharacterHP = rand(1, 20);
-                    $enemyCharacterHP = rand(1, 20);
+                $characterHP = $contest->win === null ? rand(1, 20) : ($contest->win ? rand(1, 20) : 0);
+                $enemyCharacterHP = $contest->win === null ? rand(1, 20) : ($contest->win ? 0 : rand(1, 20));
 
-                    $userCharacter = $characters->where('user_id', $user->id)->random(1)->first();
-                    $contest->characters()->attach($userCharacter, ['hero_hp' => $userCharacterHP, 'enemy_hp' => $enemyCharacterHP]);
+                $contest->characters()->attach($character, ['hero_hp' => $characterHP, 'enemy_hp' => $enemyCharacterHP]);
 
-                    // create enemy
-                    $enemyUser = $users->where('id', '!=', $user->id)->random(1)->first();
-                    $enemyCharacter = $characters->where('user_id', $enemyUser->id)->random(1)->first();
-                    $contest->characters()->attach($enemyCharacter, ['hero_hp' => $enemyCharacterHP, 'enemy_hp' => $userCharacterHP]);
-
-                    /*$enemyUserContest = Contest::factory(1)->create([
-                        'user_id' => $enemyUser->id,
-                        'place_id' => $contest->place_id,
-                        'win' => $contest->win = null ? null : !$contest->win,
-                    ])->first();
-                    
-                    $enemyUserContest->characters()->attach($enemyCharacter);*/
-                }
+                // create enemy
+                $enemyCharacter = $characters->where('enemy', true)->random(1)->first();
+                $contest->characters()->attach($enemyCharacter, ['hero_hp' => $enemyCharacterHP, 'enemy_hp' => $characterHP]);
             }
         }
     }

@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Character extends Model
 {
     use HasFactory;
+    use SoftDeletes;
 
     protected $fillable = [
         'name',
@@ -29,7 +30,7 @@ class Character extends Model
 
     public function contests() : BelongsToMany
     {
-        return $this->belongsToMany(Contest::class, 'contest_character');
+        return $this->belongsToMany(Contest::class, 'contest_character')->withPivot('hero_hp', 'enemy_hp');;
     }
 
 }

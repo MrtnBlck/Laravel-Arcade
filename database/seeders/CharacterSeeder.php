@@ -17,10 +17,12 @@ class CharacterSeeder extends Seeder
         $users = User::all();
 
         foreach ($users as $user) {
-            for ($i = 0; $i < rand(3, 7); $i++) {
-                if ($user->is_admin) {
+            if ($user->is_admin) {
+                for ($i = 0; $i < rand(7, 10); $i++) {
                     Character::factory()->create(['user_id' => $user->id, 'enemy' => fake()->boolean()]);
-                } else {
+                }
+            } else {
+                for ($i = 0; $i < rand(3, 5); $i++) {
                     Character::factory()->create(['user_id' => $user->id]);
                 }
             }
