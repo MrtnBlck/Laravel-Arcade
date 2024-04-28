@@ -124,10 +124,10 @@ A gyorsabb és egyszerűbb ellenőrzés érdekében jelöld be egy "X"-el, hogy 
 [X] - Karakter törlése 2 pont \
 [X] - Új mérkőzés létrehozása 3 pont \
 [X] - Mérkőzés oldal 10 pont \
-[ ] - Helyszínek listázása oldal 2 pont \
-[ ] - Új helyszín létrehozása 2 pont \
-[ ] - Helyszín módosítása 3 pont \
-[ ] - Helyszín törlése 2 pont
+[X] - Helyszínek listázása oldal 2 pont \
+[X] - Új helyszín létrehozása 2 pont \
+[X] - Helyszín módosítása 3 pont \
+[X] - Helyszín törlése 2 pont
 
 ### Adatbázis (3 pont)
 

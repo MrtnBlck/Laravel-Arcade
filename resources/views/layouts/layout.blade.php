@@ -23,11 +23,11 @@
                             <summary>
                                 Options
                             </summary>
-                            <ul class="bg-base-100 p-2 z-10">
+                            <ul class="bg-base-100 p-2 z-20">
                                 <li><a href="{{ route('character.all') }}">My characters</a></li>
                                 <li><a href="{{ route('character.create') }}">New character</a></li>
-                                <li><a href="{{ route('place.all') }}">All Locations</a></li>
                                 @if (Auth::user()->is_admin)
+                                    <li><a href="{{ route('place.all') }}">All Locations</a></li>
                                     <li><a href="{{ route('place.create') }}">New Location</a></li>
                                 @endif
                             </ul>
