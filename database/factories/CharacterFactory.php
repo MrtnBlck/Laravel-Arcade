@@ -20,8 +20,10 @@ class CharacterFactory extends Factory
         //$stats = collect(range(1, 4))->map(fn () => random_int(1, 10));
         //$stats = $stats->map(fn ($stat) => round($stat / $stats->sum() * 20));
 
-        $numberCount = 4;
-        $total = 20;
+        $defence = random_int(1, 3);
+        
+        $numberCount = 3;
+        $total = 20 - $defence;
 
         //array of 4 numbers
         $numbers = array_fill(0, $numberCount + 1, 0);
@@ -43,10 +45,10 @@ class CharacterFactory extends Factory
 
         return [
             'name' => fake()->firstName(),
-            'defence' => $stats[0],
-            'strength' => $stats[1],
-            'accuracy' => $stats[2],
-            'magic' => $stats[3],
+            'defence' => $defence,
+            'strength' => $stats[0],
+            'accuracy' => $stats[1],
+            'magic' => $stats[2],
         ];
     }
 }
